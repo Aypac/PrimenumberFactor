@@ -176,23 +176,18 @@ public class CheckBaseValue implements Runnable {
             System.out.println("  I didn't even start!");
         } else {
             if (this.running()) {
-                System.out.println("  I am checking all numbers a_n="+startA+"+ n*"+step+"<N");
-                System.out.println("  I am at a=" + a);
+                System.out.println("  My mission is to check all numbers a_n="+startA+"+ n*"+step+" < N.");
+                System.out.println("  I have been working on this for " + (this.getRuntime()/1000) + "s and I am at a=" + a);
             } else {
                 System.out.print("  I checked all numbers a_n="+startA+"+ n*"+step+"<N");
             
             
                 if (this.solutionFound()) {
                     System.out.println(", until I found p="+p+" and q="+q+"!");
-                    System.out.print("  I used a="+winningA
-                            +" and found the period of a^x mod N = 1 to be r="+winningR);
-                    if (winningR % 2 == 0) {
-                        System.out.println(", which is even!");
-                    } else {
-                        System.out.println(", which is odd!");
-                    }
+                    System.out.print("  It took me "+(this.getRuntime()/1000)+"s and finally I used a="+winningA
+                            +" for which I found the period to be r="+winningR+".");
                 } else {
-                    System.out.println(", but I could not find p and q.");
+                    System.out.println(", but even after "+(this.getRuntime()/1000)+"s I could not find p and q.");
                 }
             }
         }
